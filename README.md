@@ -1,1 +1,1 @@
-# Glitch---The-eSports-Society
+# Glitch-The-eSports-Society
