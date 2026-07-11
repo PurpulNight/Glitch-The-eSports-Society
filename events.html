@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events - Glitch Esports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+</head>
+
+<body style="background: var(--c-bg); color: var(--c-text); min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Background Logo Watermark & Shading -->
+  <div class="bg-light-glow"
+    style="position: fixed; right: -25vw; top: 50%; transform: translateY(-50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(255, 61, 78, 0.14) 0%, transparent 70%); pointer-events: none; z-index: 0; border-radius: 50%; filter: blur(20px);">
+  </div>
+  <div class="bg-logo-watermark"
+    style="position: fixed; right: -10vw; top: 50%; transform: translateY(-50%); width: 50vw; opacity: 0.055; pointer-events: none; z-index: 0; filter: drop-shadow(0 0 35px rgba(255, 61, 78, 0.35));">
+    <img src="assets/logo-red.png" alt="Glitch Watermark Logo" style="width: 100%; height: auto;" />
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#about" class="nav-btn-about">
+        <span class="about-text">ABOUT US</span>
+      </a>
+      <a href="index.html#home" class="nav-logo-centered">
+        <img src="assets/logo-red.png" alt="Glitch Logo" class="navbar-logo-img" />
+      </a>
+      <a href="index.html#events" class="nav-btn-events">
+        <span class="events-text">HOME</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- COMING SOON LAYOUT (Container ID: coming-soon-page) -->
+  <main id="coming-soon-page" class="coming-soon-container"
+    style="display: none; flex: 1; align-items: center; justify-content: center; padding: 120px 0 60px; position: relative; z-index: 1;">
+    <div class="container" style="text-align: center;">
+
+      <h1 class="coming-soon-title" id="main-title"
+        style="font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 8vw, 5.5rem); letter-spacing: -0.02em; color: var(--c-white); text-transform: uppercase; line-height: 1.0; margin-bottom: 0; transition: margin-bottom 0.3s ease;">
+        COMING <span class="highlight" style="text-shadow: 0 0 20px var(--c-neon-glow);">SOON</span>
+      </h1>
+
+    </div>
+  </main>
+
+
+  <!-- ACTUAL EVENTS LAYOUT (Container ID: events-page) -->
+  <div id="events-page" style="display: none; position: relative; z-index: 1;">
+
+    <!-- MAIN BANNER -->
+    <section class="events-hero" style="padding-top: 120px; padding-bottom: 40px;">
+      <div class="container">
+        <div class="events-hero-content">
+          <h1 class="events-hero-title">UPCOMING &amp; <span class="highlight">ONGOING</span> EVENTS</h1>
+          <p class="events-hero-sub"> </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS SHOWCASE -->
+    <section class="events-showcase-section" style="padding-bottom: 80px;">
+      <div class="container"
+        style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 40px;">
+
+        <!-- Singular Event Card -->
+        <div class="showcase-card" style="max-width: 450px; width: 100%;">
+          <div class="showcase-card-banner" style="height: 240px; position: relative;">
+            <img src="assets/opval26.png" alt="Operation VALORANT '26"
+              style="width: 100%; height: 100%; object-fit: contain;" />
+          </div>
+          <div class="showcase-card-body">
+            <span class="showcase-game-tag">VALORANT</span>
+            <h3 class="showcase-event-title" style="margin-bottom: 8px;">Operation VALORANT '26</h3>
+
+            <div class="showcase-event-details" style="margin-bottom: 20px;">
+              <span><strong>Date:</strong> To Be Announced</span>
+              <span><strong>Mode:</strong> Online &amp; LAN</span>
+            </div>
+
+            <div style="display: flex; gap: 12px;">
+              <button onclick="goToComingSoon()" class="btn btn-neon"
+                style="flex: 1; justify-content: center; cursor: pointer;">Register</button>
+              <button onclick="goToComingSoon()" class="btn btn-outline"
+                style="flex: 1; justify-content: center; cursor: pointer;">View Brackets</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div>
+          <a href="index.html#events" class="btn btn-outline">Back to Home</a>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // --- GLOBAL CONFIGURATION SWITCHES ---
+    const isComingSoon = false;      // Set to true for Coming Soon page, false for active Showcase Events page
+
+    // Initialize Lenis Scroll
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // --- DISPLAY LAYER HANDLING ---
+    const comingSoonPage = document.getElementById("coming-soon-page");
+    const eventsPage = document.getElementById("events-page");
+
+    function goToComingSoon() {
+      comingSoonPage.style.display = "flex";
+      eventsPage.style.display = "none";
+    }
+
+    if (isComingSoon) {
+      // Show Coming Soon layout
+      comingSoonPage.style.display = "flex";
+      eventsPage.style.display = "none";
+    } else {
+      // Show Showcase Events page layout
+      comingSoonPage.style.display = "none";
+      eventsPage.style.display = "block";
+    }
+  </script>
+</body>
+
+</html>
