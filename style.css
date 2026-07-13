@@ -604,6 +604,11 @@ input, select, textarea { font-family: inherit; }
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
+  margin-top: 24px;
+}
+
+.team-grid.team-grid--first {
+  grid-template-columns: repeat(6, 1fr);
   margin-top: 56px;
 }
 
@@ -620,9 +625,23 @@ input, select, textarea { font-family: inherit; }
   overflow: hidden;
 }
 
-.team-grid .team-card:nth-child(-n+5) {
+.team-grid--first .team-card {
   border-color: rgba(255, 61, 78, 0.45);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 22px rgba(255, 61, 78, 0.3);
+  padding: 38px 0;
+  transform: scale(1.1);
+}
+
+.team-grid--first .team-avatar-wrap {
+  width: 86%;
+}
+
+.team-grid--first .team-member-name {
+  font-size: 1.2rem;
+}
+
+.team-grid--first .team-member-role {
+  font-size: 0.88rem;
 }
 
 .team-card-inner {
