@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon - Glitch Esports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+</head>
+
+<body style="background: var(--c-bg); color: var(--c-text); min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Background Logo Watermark & Shading -->
+  <div class="bg-light-glow"
+    style="position: fixed; right: -25vw; top: 50%; transform: translateY(-50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(255, 61, 78, 0.14) 0%, transparent 70%); pointer-events: none; z-index: 0; border-radius: 50%; filter: blur(20px);">
+  </div>
+  <div class="bg-logo-watermark"
+    style="position: fixed; right: -10vw; top: 50%; transform: translateY(-50%); width: 50vw; opacity: 0.055; pointer-events: none; z-index: 0; filter: drop-shadow(0 0 35px rgba(255, 61, 78, 0.35));">
+    <img src="assets/logo-red.png" alt="Glitch Watermark Logo" style="width: 100%; height: auto;" />
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#about" class="nav-btn-about">
+        <span class="about-text">ABOUT US</span>
+      </a>
+      <a href="index.html#home" class="nav-logo-centered">
+        <img src="assets/logo-red.png" alt="Glitch Logo" class="navbar-logo-img" />
+      </a>
+      <a href="index.html#events" class="nav-btn-events">
+        <span class="events-text">HOME</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- COMING SOON LAYOUT -->
+  <main class="coming-soon-container"
+    style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 120px 0 60px; position: relative; z-index: 1;">
+    <div class="container" style="text-align: center;">
+
+      <h1 class="coming-soon-title"
+        style="font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 8vw, 5.5rem); letter-spacing: -0.02em; color: var(--c-white); text-transform: uppercase; line-height: 1.0; margin-bottom: 30px;">
+        COMING <span class="highlight" style="text-shadow: 0 0 20px var(--c-neon-glow);">SOON</span>
+      </h1>
+
+      <p
+        style="font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; color: var(--c-muted); text-transform: uppercase; margin-bottom: 40px;">
+        Stay tuned!
+      </p>
+
+
+
+    </div>
+  </main>
+
+  <script>
+    // Initialize Lenis Scroll
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  </script>
+</body>
+
+</html>

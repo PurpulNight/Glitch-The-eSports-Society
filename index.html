@@ -166,8 +166,17 @@
 
       <!-- upcoming khatka -->
       <div class="events-action reveal" style="text-align: center; margin-top: 56px;">
-        <a href="events.html" class="btn btn-neon btn-rect">Upcoming and Ongoing events</a>
+        <a id="upcoming-khatka-btn" href="events.html" class="btn btn-neon btn-rect">Upcoming and Ongoing events</a>
       </div>
+      <script>
+
+        // Set to true to redirect to "coming soon.html". Set to false to go to "events.html".
+        const isComingSoon = false;
+
+        if (isComingSoon) {
+          document.getElementById('upcoming-khatka-btn').href = 'coming soon.html';
+        }
+      </script>
     </div>
   </section>
 
@@ -183,9 +192,7 @@
       </div>
 
       <div class="about-us-text about-us-text--centered reveal">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.</p>
+        <p>Founded on 1st December 2020, Glitch is an evergrowing .</p>
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
@@ -236,7 +243,7 @@
         <div class="team-card reveal">
           <div class="team-card-inner">
             <div class="team-avatar-wrap">
-              <img src="assets/test.jpg" alt="Sarah Connor" class="team-avatar-img" />
+              <img src="assets/test.jpg" alt="team member" class="team-avatar-img" />
               <div class="team-avatar-glow"></div>
             </div>
             <h3 class="team-member-name">Kanav Vij</h3>
