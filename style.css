@@ -93,6 +93,9 @@ input, select, textarea { font-family: inherit; }
   box-shadow: 0 0 40px var(--c-neon-glow), 0 8px 32px rgba(255,61,78,0.6);
   transform: translateY(-2px);
 }
+.events-action .btn:hover {
+  transform: none;
+}
 .btn-outline {
   border: 1.5px solid var(--c-cyan);
   color: var(--c-cyan);
@@ -102,6 +105,23 @@ input, select, textarea { font-family: inherit; }
   background: var(--c-cyan-glow);
   box-shadow: 0 0 24px var(--c-cyan-glow);
   transform: translateY(-2px);
+}
+
+/* Disable button hover effects specifically on the events page */
+.events-page-body .btn:hover::before {
+  opacity: 0;
+}
+.events-page-body .btn-neon:hover {
+  box-shadow: 0 0 24px var(--c-neon-glow), 0 4px 20px rgba(255,61,78,0.4);
+  transform: none;
+}
+.events-page-body .btn-outline:hover {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.events-page-body .btn-rect:hover {
+  box-shadow: 0 0 12px rgba(255, 61, 78, 0.15), 0 2px 10px rgba(255, 61, 78, 0.2);
 }
 
 .navbar {
