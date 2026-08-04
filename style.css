@@ -34,14 +34,13 @@
 
 html {
   scroll-padding-top: var(--nav-h);
-  overflow-x: hidden;
 }
 
 body {
   font-family: 'Inter', sans-serif;
   background: var(--c-bg);
   color: var(--c-text);
-  overflow-x: hidden;
+  overflow-x: clip;
   line-height: 1.6;
 }
 
