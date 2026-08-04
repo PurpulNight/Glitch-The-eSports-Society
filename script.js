@@ -224,8 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
       p = Math.max(0, Math.min(1, p));
 
       targets.forEach(({ el, tx, ty, tr, ts, lead }) => {
-        const x = tx * p * vw();  // px
-        let y = ty * p * vh();  // px
+        const spreadFactor = window.innerWidth < 768 ? 0.6 : 1.0;
+        const x = tx * p * vw() * spreadFactor;  // px
+        let y = ty * p * vh() * spreadFactor;  // px
         const r = tr * p;
         const s = 1 + (ts - 1) * p;
         const o = lead ? 1 : Math.min(1, p * 2.5);

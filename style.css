@@ -34,6 +34,7 @@
 
 html {
   scroll-padding-top: var(--nav-h);
+  overflow-x: hidden;
 }
 
 body {
@@ -335,7 +336,7 @@ textarea {
 .hero-brand-title {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 227px;
+  font-size: clamp(4.5rem, 16vw, 227px);
   line-height: 0.85;
   letter-spacing: -0.06em;
   color: #FF3D4E;
@@ -345,14 +346,14 @@ textarea {
 
 .hero-brand-sub {
   position: absolute;
-  left: 10px;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
   font-family: 'Permanent Marker', cursive;
   font-weight: 400;
-  font-size: 39px;
-  letter-spacing: 20.22px;
+  font-size: clamp(0.9rem, 3.2vw, 39px);
+  letter-spacing: clamp(4px, 1.6vw, 20.22px);
   text-transform: none;
   color: rgba(255, 255, 255, 0.92);
   white-space: nowrap;
@@ -652,6 +653,11 @@ textarea {
     flex: none;
     filter: none;
   }
+
+  .ev-row--center .ev-card {
+    max-width: 100%;
+    flex: 1 1 auto !important;
+  }
 }
 
 .about-section {
@@ -728,7 +734,7 @@ textarea {
   margin-top: 24px;
 }
 
-.team-grid.team-grid--first {
+.team-grid--first {
   grid-template-columns: repeat(6, 1fr);
   margin-top: 56px;
 }
@@ -837,19 +843,26 @@ textarea {
 }
 
 @media (max-width: 1200px) {
-  .team-grid {
+  .team-grid,
+  .team-grid--first {
     grid-template-columns: repeat(4, 1fr);
+  }
+  .team-grid--first .team-card {
+    transform: none;
+    padding: 28px 0;
   }
 }
 
 @media (max-width: 992px) {
-  .team-grid {
+  .team-grid,
+  .team-grid--first {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .team-grid {
+  .team-grid,
+  .team-grid--first {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
@@ -860,7 +873,8 @@ textarea {
 }
 
 @media (max-width: 480px) {
-  .team-grid {
+  .team-grid,
+  .team-grid--first {
     grid-template-columns: 1fr;
     max-width: 280px;
     margin-inline: auto;
@@ -993,7 +1007,7 @@ textarea {
 @media (max-width: 768px) {
   .nav-container {
     justify-content: space-between;
-    padding-inline: 24px;
+    padding-inline: 16px;
   }
 
   .nav-logo-centered {
@@ -1005,7 +1019,8 @@ textarea {
   .nav-btn-about {
     position: static;
     transform: none;
-    font-size: 1.05rem;
-    padding: 6px 16px;
+    font-size: 0.95rem;
+    padding: 6px 12px;
+    left: auto;
   }
 }
